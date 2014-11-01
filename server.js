@@ -16,12 +16,14 @@ app.all('/', function (req, res){
   var rhours = (hours > 12) ? hours -=12: hours;
   var curTime = 'The local time is: ' + hours + ':' + min +' '+ tag;
   console.log(curTime);
+  res.json(curTime);
   res.end(curTime);
 });
 
 app.all('/name/:key', function (req, res) {
   var key = req.params.key;
-  res.end('Hello ' + key + ' is the man!');
+  var msg = 'Hello ' + key + ' is the man!';
+  res.end(msg);
 });
 
 app.listen(8080);

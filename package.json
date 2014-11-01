@@ -2,7 +2,7 @@
   "name": "sea-b24-basic-json-api",
   "version": "1.0.0",
   "description": "A basic express json api",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "node_modules/grunt-cli/bin/grunt"
   },
