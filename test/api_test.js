@@ -3,7 +3,7 @@
 var chai = require('chai');
 var expect = require('chai').expect;
 var chaihttp = require('chai-http');
-var server = require('../server.js');
+var app = require('../server.js');
 
 chai.use(chaihttp);
 
@@ -16,10 +16,10 @@ var curTime = 'The local time is: ' + hours + ':' + min +' '+ tag;
 
 describe('Simple JSON API Time', function(){
   it('should send the local time', function(){
-    chai.request('http://localhost:8080')
+    chai.request(app)
     .get('/')
     .end(function (err, res){
-     expect(res.body.curTime).to.equal(curTime);
+     expect(res.body).to.equal(curTime);
   });
 });
 });

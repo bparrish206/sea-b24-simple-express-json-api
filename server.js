@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.all('/', function (req, res){
+app.get('/', function (req, res){
   var time = new Date();
   var hours = time.getHours();
   var min = time.getMinutes();
@@ -16,8 +16,8 @@ app.all('/', function (req, res){
   var rhours = (hours > 12) ? hours -=12: hours;
   var curTime = 'The local time is: ' + hours + ':' + min +' '+ tag;
   console.log(curTime);
-  res.json(curTime);
-  res.end(curTime);
+  res.json(curTime.toString());
+  //res.end(curTime);
 });
 
 app.all('/name/:key', function (req, res) {
